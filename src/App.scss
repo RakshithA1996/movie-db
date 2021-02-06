@@ -1,0 +1,10 @@
+@import "./scss/main.scss";
+
+.App {
+  background: #121212;
+  font-family: "Wellfleet", cursive;
+
+  @include respond(phone) {
+    background: #3f3f3f;
+  }
+}

@@ -1,0 +1,63 @@
+.seeMorePage {
+  background-image: url("../../images/bgImg.jpg");
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__Header {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+
+    @include respond(phone) {
+      color: #000000;
+    }
+  }
+
+  &__Body {
+    margin-top: 18rem;
+    width: 70%;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 2rem;
+    padding-top: 4rem;
+
+    @include respond(phone) {
+      width: 100%;
+      margin-top: 30rem;
+      background-color: rgba(211, 211, 211, 0.8);
+    }
+  }
+
+  &__Content {
+    &--Card {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-gap: 2rem;
+      margin-bottom: 2rem;
+      background: #252525;
+
+      @include respond(phone) {
+        grid-template-columns: 1fr;
+        grid-gap: 0rem;
+      }
+
+      &__Video {
+        border: none;
+        width: 100%;
+
+        @include respond(phone) {
+          height: 160px !important;
+        }
+      }
+
+      &__Overview {
+        @include respond(phone) {
+          display: none;
+        }
+      }
+    }
+  }
+}

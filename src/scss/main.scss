@@ -1,0 +1,18 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layouts/header.scss";
+@import "layouts/extras.scss";
+
+@import "components/home.scss";
+@import "components/bannerCarosel";
+@import "components/upcommingMovies";
+@import "components/topRatedMovies";
+@import "components/popularMovies";
+@import "components/seeMorePage";
+@import "components/videoModal";

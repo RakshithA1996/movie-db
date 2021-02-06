@@ -1,0 +1,156 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: #121212;
+  transition: all 0.8s ease-in-out;
+
+  @include respond(phone) {
+    background-color: #3f3f3f;
+  }
+
+  &__Img {
+    position: relative;
+    margin-left: 4rem;
+
+    @include respond(phone) {
+      margin-left: 1rem;
+      width: 150px;
+    }
+  }
+
+  &__SearchBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 4rem;
+    margin-top: 1.6rem;
+    color: #1670f7;
+
+    @include respond(phone) {
+      margin-right: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    &--Img {
+      width: 30px;
+      height: 30px;
+      margin-right: 1rem;
+
+      @include respond(phone) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &--Input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #000000;
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ffffff;
+      color: #ffffff;
+
+      @include respond(phone) {
+        width: 100%;
+      }
+    }
+
+    &--Input:focus {
+      outline: none;
+    }
+
+    &--Para {
+      font-family: "Londrina Solid", cursive;
+      letter-spacing: 0.2rem;
+      font-size: 2.8rem;
+      font-weight: bolder;
+      margin-left: 1rem;
+      background: transparent;
+      border: none;
+      color: #1670f7;
+      @include respond(phone) {
+        font-size: 2.5rem;
+      }
+    }
+    &--Para:focus {
+      outline: none;
+    }
+    &--Para:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__SearchBox:hover {
+    cursor: pointer;
+  }
+}
+
+.inputDiv {
+  position:relative;
+  @include respond(phone){
+    width: 40%;
+  }
+}
+
+.searchList {
+  position: absolute;
+  background: #252525;
+  color: #ffffff;
+  padding: 1rem;
+  margin-top: 2rem;
+  height: 400px;
+  overflow: auto;
+  width: 150%;
+
+  &__Para{
+    padding-bottom: 1rem;
+  }
+}
+
+.header2 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0;
+  z-index: 10;
+  background-color: #121212;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include respond(phone) {
+    padding: 1rem;
+    padding-top: 1rem;
+    background-color: #3f3f3f;
+  }
+
+  &__Img2 {
+    margin-left: 2rem;
+    @include respond(phone) {
+      margin-left: 1rem;
+    }
+  }
+
+  &__Img2:hover {
+    cursor: pointer;
+  }
+
+  &__Img {
+    position: relative;
+    margin-left: 10.2%;
+
+    @include respond(phone) {
+      margin-left: 1rem;
+      width: 150px;
+    }
+  }
+}
