@@ -18,10 +18,10 @@ class seeMorePage extends Component {
       }
 
     componentDidMount(){
-        this.getUpcommingMovieDetails();
+        this.getMovieDetails();
     }
 
-    getPosterImage = (id) => {
+    getPosterVideo = (id) => {
         let api_key = "dcd90828f3169240a4e9b818d289b221";
         var vKey;
         fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}&language=en-US`, {
@@ -32,14 +32,14 @@ class seeMorePage extends Component {
         })
         .then((res) => res.json())
         .then((res) => {
-            this.setState(previousState => ({
-                videoArray: [...previousState.videoArray, res.results[0] && res.results[0].key]
-            }));
+            var videoArray = []
+            videoArray.concat(res.results[0] && res.results[0].key)
+            this.setState({ videoArray: [...this.state.videoArray, res.results[0] && res.results[0].key ]});
         })
         .catch((err) => toast.error(err.message));
     }
 
-    getUpcommingMovieDetails = () => {
+    getMovieDetails = () => {
         const {Offset, dataArray, Limit} = this.state;
         let api_key = "dcd90828f3169240a4e9b818d289b221";
         let url = localStorage.getItem("DataValue") === "upcoming" ?
@@ -66,9 +66,15 @@ class seeMorePage extends Component {
                     : [...dataArray, ...res.results],
                     hasMore: res.results.length > 9 ? true : false
                     },()=>{
-                    this.state.dataArray.map((data, index)=>{
-                        return this.getPosterImage(data.id)
-                    })
+                        if(Offset === 1){
+                            this.state.dataArray.map((data, index)=>{
+                                return this.getPosterVideo(data.id)
+                            })
+                        }else{
+                            this.state.dataArray.slice(this.state.dataArray.length-20,this.state.dataArray.length).map((data, index)=>{
+                                return this.getPosterVideo(data.id)
+                            })
+                        }  
                 });
             }else{
                 toast.error("Error in api");
@@ -78,7 +84,7 @@ class seeMorePage extends Component {
     }
 
     nextfunction = () => {
-        this.getUpcommingMovieDetails();
+        this.getMovieDetails();
     };
 
     render(){
@@ -91,8 +97,8 @@ class seeMorePage extends Component {
                         src={`https://www.youtube.com/embed/${videoArray[index]}?controls=1`} frameborder="0" allowfullscreen>
                     </iframe>
                     <div className="padding2rem">
-                        <div className="seeMorePage__Content--Card__Name"><span className="label1">Name : </span>{data.original_title}</div>
-                        <div className="seeMorePage__Content--Card__Overview"><span className="label1">Overview : </span>{data.overview.substring(0,190)}</div>
+                        <div className="seeMorePage__Content--Card__Name"><span className="label1">Name : </span>{data.title}</div>
+                        <div className="seeMorePage__Content--Card__Overview"><span className="label1">Overview : </span>{data.overview.substring(0,170)}</div>
                         <div className="seeMorePage__Content--Card__Release"><span className="label1">Release Date : </span>{data.release_date}</div>
                     </div>
                 </div>

@@ -75,7 +75,7 @@ class topRatedMovies extends Component {
                                     src={`https://www.youtube.com/embed/${videoArray[index]}`}>
                                 </iframe>
                                 <div className="padding1rem">
-                                    <div className="topRatedMovies__Content--Card__Name"><span className="label1">Name : </span>{data.original_title}</div>
+                                    <div className="topRatedMovies__Content--Card__Name"><span className="label1">Name : </span>{data.title}</div>
                                     <div className="topRatedMovies__Content--Card__Overview"><span className="label1">Overview : </span>{data.overview}</div>
                                     <div className="topRatedMovies__Content--Card__Release"><span className="label1">Release Date : </span>{data.release_date}</div>
                                 </div>
